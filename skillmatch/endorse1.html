@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://unicons.iconsout.com/release/v4.0.0/css/line.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family:Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ee96e4;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, #9740a1, #d6c1ea);
+            padding: 30px 20px;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .profile-header .profile-picture {
+            width: 120px;
+            height: 120px;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            background: #ccc;
+            margin-left: 0.5rem;
+            overflow: hidden;
+        }
+
+        .profile-header .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            margin-left: 20px;
+        }
+
+        .profile-details h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .profile-details .designation {
+            font-size: 16px;
+            color: #f6afed;
+            margin-bottom: 10px;
+        }
+
+        .profile-details p {
+            font-size: 14px;
+            color: #f4f4f4;
+            margin: 0;
+        }
+
+        .profile-content {
+            padding: 20px;
+        }
+
+        .profile-section {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            width: ;
+        }
+
+        .profile-section h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .profile-section .skill-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-section .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .profile-section .skill-item span {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .profile-section .skill-item button {
+          margin-right: 1rem;
+            padding: 8px 16px;
+            background-color: #676267;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-section .skill-item button:hover {
+            background-color: #8c8a8d;
+        }
+
+        .profile-section .skill-item button.endorsed {
+            background-color: #98e6b7;
+            color: #2e8b57;
+        }
+
+        .skillu{
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-header">
+        <div class="profile-picture">
+            <img src="man3.png" alt="Profile Picture">
+        </div>
+        <div class="profile-details">
+            <h1>John Doe</h1>
+            <div class="designation">Software Engineer</div>
+            <p>San Francisco, CA</p>
+            <p>john.doe@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <div class="profile-section">
+            <h2>About Me</h2>
+            <p>
+                I am a software engineer specializing in full-stack development with a passion for creating intuitive and responsive web applications. My interests include artificial intelligence, machine learning, and solving complex problems through technology.
+            </p>
+        </div>
+
+        <div class="profile-section">
+            <h2>Experience</h2>
+            <p>
+                - Senior Software Engineer at XYZ Corp (2018 - Present)<br>
+                - Software Developer at ABC Inc (2015 - 2018)<br>
+                - Intern at DEF Ltd (2014 - 2015)
+            </p>
+        </div>
+
+        <div class="skillu billu profile-section">
+            <h2>Skills</h2>
+            <div class="skill-item">
+                <span>JavaScript</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Python</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Java</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>React</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Node.js</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Django</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Git</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Docker</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+            <div class="skill-item">
+                <span>Kubernetes</span>
+                <button class="btn" onclick="toggleEndorse(this)">Endorse</button>
+            </div>
+           
+        </div>
+        
+    </div>
+
+    <script>
+        function toggleEndorse(button) {
+            // Check if the button is already endorsed
+            if (button.classList.contains('endorsed')) {
+                // Remove the endorsed state
+                button.classList.remove('endorsed');
+                button.textContent = 'Endorse';
+            } else {
+                // Add the endorsed state
+                button.classList.add('endorsed');
+                button.textContent = 'Endorsed';
+            }
+        }
+    </script>
+</body>
+</html>

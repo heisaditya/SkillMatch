@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration History</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #d439ca;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            top: 3rem;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f0ff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-card:hover {
+            background-color: #f2e0f9;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d025c4;
+        }
+
+        .profile-details {
+            flex: 1;
+            margin-left: 1.5rem;
+        }
+
+        .profile-name {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .profile-bio {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0.5rem 0;
+        }
+
+        .profile-button {
+            background-color: #d025c4;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-button:hover {
+            background-color: #a018a0;
+        }
+
+        .collaboration-history {
+            margin-top: 3rem;
+        }
+
+        .history-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #d025c4;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            Collaboration History
+        </div>
+
+        <div class="collaboration-history">
+            <div class="history-header">Recent Collaborations</div>
+
+            <!-- Profile 1 -->
+            <div class="profile-card">
+                <img src="man1.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Michael Brown</div>
+                    <div class="profile-bio">Software Engineer | Web Developer</div>
+                    <a href="endorse2.html"><button class="profile-button">View Profile</button></a>
+                </div>
+            </div>
+
+            <!-- Profile 2 -->
+            <div class="profile-card">
+                <img src="man2.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Jane Smith</div>
+                    <div class="profile-bio">UI/UX Designer | Graphic Artist</div>
+                    <a href="en3.html"><button class="profile-button">View Profile</button></a>
+                </div>
+            </div>
+
+            <!-- Profile 3 -->
+            <div class="profile-card">
+                <img src="man3.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">John Doe</div>
+                    <div class="profile-bio">Project Manager | Team Lead</div>
+                    <a href="endorse1.html"><button class="profile-button">View Profile</button></a>
+                </div>
+            </div>
+
+            <!-- Profile 4 -->
+            <div class="profile-card">
+                <img src="man4.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Sara Lee</div>
+                    <div class="profile-bio">Data Scientist | AI Specialist</div>
+                    <button class="profile-button">View Profile</button>
+                </div>
+            </div>
+
+            <!-- Profile 5 (Woman) -->
+            <div class="profile-card">
+                <img src="wm1.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Emma Williams</div>
+                    <div class="profile-bio">Marketing Specialist | Brand Strategist</div>
+                    <button class="profile-button">View Profile</button>
+                </div>
+            </div>
+
+            <!-- Profile 6 (Woman) -->
+            <div class="profile-card">
+                <img src="wm2.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Olivia Miller</div>
+                    <div class="profile-bio">Content Creator | Social Media Expert</div>
+                    <button class="profile-button">View Profile</button>
+                </div>
+            </div>
+
+            <!-- Profile 7 (Woman) -->
+            <div class="profile-card">
+                <img src="wm3.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Sophia Davis</div>
+                    <div class="profile-bio">Full Stack Developer | Web Architect</div>
+                    <button class="profile-button">View Profile</button>
+                </div>
+            </div>
+
+            <!-- Profile 8 (Woman) -->
+            <div class="profile-card">
+                <img src="wm4.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-details">
+                    <div class="profile-name">Isabella Wilson</div>
+                    <div class="profile-bio">Product Manager | Tech Enthusiast</div>
+                    <button class="profile-button">View Profile</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

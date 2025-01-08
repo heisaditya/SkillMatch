@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #d025c4;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #d025c4;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .profile-picture {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-picture img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d025c4;
+        }
+
+        .profile-picture button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            background-color: #d025c4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-picture button:hover {
+            background-color: #a018a0;
+        }
+
+        .extra-info {
+            background-color: #e5d3f3;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .extra-info .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .form-actions button {
+            flex: 1;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .save-btn {
+            background-color: #d025c4;
+            color: #fff;
+        }
+
+        .save-btn:hover {
+            background-color: #a018a0;
+        }
+
+        .cancel-btn {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .cancel-btn:hover {
+            background-color: #bbb;
+        }
+
+        /* Updated Toggle Button */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            background-color: #d8b1f6;
+            padding: 1rem;
+            border-radius: 0.85rem;
+        }
+
+        .toggle-container label {
+            font-size: 1rem;
+            color: #2a2727;
+            margin-right: 10px;
+        }
+
+        .toggle-container input {
+            appearance: none;
+            width: 40px;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-container input:checked {
+            background-color: #d025c4;
+        }
+.togu{
+    left: -17rem;
+    
+}
+        .toggle-container input::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .toggle-container input:checked::before {
+            left: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Edit Profile
+        </div>
+        <form class="form">
+            <!-- Profile Picture Section -->
+            <div class="profile-picture">
+                <img id="profile-img" src="pfp.png" alt="Profile Picture">
+                <input type="file" id="profile-pic-input" style="display: none;" onchange="updateProfilePic()">
+                <button type="button" onclick="document.getElementById('profile-pic-input').click()">Change Profile Picture</button>
+            </div>
+
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+
+            <!-- Bio Field -->
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" placeholder="Write a short bio..."></textarea>
+            </div>
+
+            <!-- Location Field -->
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Enter your location">
+            </div>
+
+            <!-- Gender Field -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Extra Info Section -->
+            <div class="extra-info">
+                <div class="form-group">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" placeholder="Enter your skills">
+                </div>
+                <div class="form-group">
+                    <label for="project-interests">Project Interests</label>
+                    <input type="text" id="project-interests" placeholder="Enter your project interests">
+                </div>
+                <div class="form-group">
+                    <label for="expertise">Expertise</label>
+                    <input type="text" id="expertise" placeholder="Enter your expertise">
+                </div>
+                <div class="form-group">
+                    <label for="contact-info">Contact Info</label>
+                    <input type="text" id="contact-info" placeholder="Enter your contact info">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+            </div>
+
+            <!-- Toggle Button -->
+            <div class="toggle-container">
+                <label for="collaboration-toggle">Open to Collaboration</label>
+                <input class="togu" type="checkbox" id="collaboration-toggle">
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-actions">
+                <button type="button" class="save-btn" onclick="saveChanges()">Save Changes</button>
+                <button type="button" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function updateProfilePic() {
+            const file = document.getElementById('profile-pic-input').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-img').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function saveChanges() {
+            const name = document.getElementById('name').value;
+            const username = document.getElementById('username').value;
+            const bio = document.getElementById('bio').value;
+            const location = document.getElementById('location').value;
+            const gender = document.getElementById('gender').value;
+            const skills = document.getElementById('skills').value;
+            const projectInterests = document.getElementById('project-interests').value;
+            const expertise = document.getElementById('expertise').value;
+            const contactInfo = document.getElementById('contact-info').value;
+            const email = document.getElementById('email').value;
+            const openToCollaboration = document.getElementById('collaboration-toggle').checked;
+
+            // Update the placeholders with the provided data
+            document.getElementById('name').placeholder = name;
+            document.getElementById('username').placeholder = username;
+            document.getElementById('bio').placeholder = bio;
+            document.getElementById('location').placeholder = location;
+            document.getElementById('skills').placeholder = skills;
+            document.getElementById('project-interests').placeholder = projectInterests;
+            document.getElementById('expertise').placeholder = expertise;
+            document.getElementById('contact-info').placeholder = contactInfo;
+            document.getElementById('email').placeholder = email;
+
+            alert("Changes saved successfully!");
+        }
+    </script>
+</body>
+</html>
